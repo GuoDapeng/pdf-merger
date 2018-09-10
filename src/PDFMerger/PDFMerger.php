@@ -66,7 +66,7 @@ class PDFMerger
             throw new Exception("No PDFs to merge.");
         }
 
-        $fpdi = new FPDI;
+        $fpdi = new \setasign\Fpdi\Fpdi();
 
         // merger operations
         foreach ($this->_files as $file) {
@@ -92,7 +92,7 @@ class PDFMerger
                     }
                     $size = $fpdi->getTemplateSize($template);
 
-                    $fpdi->AddPage($fileorientation, array($size['w'], $size['h']));
+                    $fpdi->AddPage($fileorientation, array($size['width'], $size['height']));
                     $fpdi->useTemplate($template);
                 }
             }
